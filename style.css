@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Cliente</title>
     <style>
-        /* CSS para deixar o formulário com aparência profissional */
         body { font-family: Arial, sans-serif; background-color: #f4f4f9; display: flex; justify-content: center; padding: 20px; }
         .container { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); width: 100%; max-width: 400px; }
         h2 { text-align: center; color: #333; }
@@ -39,12 +38,6 @@
         <button type="submit">Finalizar Cadastro</button>
     </form>
 </div>
-
-<script>
-    // Lógica para capturar os dados do formulário
-    document.getElementById('formCadastro').addEventListener('submit', function(event) {
-        event.preventDefault(); // Impede a página de recarregar
-
         const cliente = {
             nome: document.getElementById('nome').value,
             email: document.getElementById('email').value,
@@ -53,10 +46,5 @@
 
         console.log("Dados do Cliente:", cliente);
         alert("Cadastro de " + cliente.nome + " realizado com sucesso! (Veja o console do navegador)");
-        
-        this.reset(); // Limpa o formulário
-    });
-</script>
-
 </body>
 </html>
