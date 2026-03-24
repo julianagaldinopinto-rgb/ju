@@ -3,18 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Cliente</title>
+    <title>Sistema de Cadastro | GitHub Project</title>
     <style>
-        /* Reset de estilos para consistência entre navegadores */
+        /* Variáveis de Cores para facilitar customização */
+        :root {
+            --primary-color: #2ea44f; /* Verde estilo GitHub */
+            --bg-color: #f6f8fa;
+            --text-color: #24292e;
+            --border-color: #d0d7de;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
         }
 
         body {
-            background-color: #f4f7f6;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -22,133 +30,144 @@
             padding: 20px;
         }
 
-        /* Container do Formulário */
-        .card-cadastro {
-            background: #ffffff;
+        .container {
+            background-color: #ffffff;
             width: 100%;
-            max-width: 500px;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            max-width: 440px;
+            padding: 32px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(140, 149, 159, 0.2);
         }
 
         h2 {
+            font-size: 24px;
+            font-weight: 400;
             text-align: center;
-            color: #333;
-            margin-bottom: 30px;
+            margin-bottom: 24px;
+            letter-spacing: -0.5px;
         }
 
-        /* Grupos de entrada */
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
 
-        .form-group label {
+        label {
             display: block;
-            font-weight: 600;
             margin-bottom: 8px;
-            color: #555;
+            font-weight: 600;
             font-size: 14px;
         }
 
-        .form-group input, 
-        .form-group select {
+        input, select, textarea {
             width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 16px;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-            color: #333;
+            padding: 8px 12px;
+            font-size: 14px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background-color: #f9fafb;
+            transition: border-color 0.2s, box-shadow 0.2s;
         }
 
-        /* Efeito visual ao clicar no campo */
-        .form-group input:focus,
-        .form-group select:focus {
+        input:focus {
             outline: none;
-            border-color: #4A90E2;
-            box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+            border-color: #0969da;
+            box-shadow: 0 0 0 3px rgba(9, 105, 218, 0.3);
+            background-color: #ffffff;
         }
 
-        /* Layout de duas colunas */
-        .row {
+        /* Layout de colunas para CPF e Telefone */
+        .form-row {
             display: flex;
-            gap: 15px;
+            gap: 12px;
         }
 
-        .row .form-group {
+        .form-row .form-group {
             flex: 1;
         }
 
-        /* Botão de envio */
-        .btn-enviar {
+        .btn-submit {
             width: 100%;
-            padding: 15px;
-            background-color: #4A90E2;
+            padding: 12px;
+            background-color: var(--primary-color);
             color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: bold;
+            border: 1px solid rgba(27, 31, 36, 0.15);
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
             cursor: pointer;
-            transition: background 0.3s ease;
-            margin-top: 10px;
+            margin-top: 8px;
+            transition: background-color 0.2s;
         }
 
-        .btn-enviar:hover {
-            background-color: #357ABD;
+        .btn-submit:hover {
+            background-color: #2c974b;
         }
 
-        /* Ajuste para telas de celular */
+        .btn-submit:active {
+            background-color: #298e46;
+            transform: translateY(1px);
+        }
+
+        /* Rodapé do card */
+        .footer-info {
+            margin-top: 24px;
+            text-align: center;
+            font-size: 12px;
+            color: #656d76;
+        }
+
+        /* Responsividade */
         @media (max-width: 480px) {
-            .row {
+            .form-row {
                 flex-direction: column;
                 gap: 0;
-            }
-            .card-cadastro {
-                padding: 25px;
             }
         }
     </style>
 </head>
 <body>
 
-<div class="card-cadastro">
-    <h2>Novo Cliente</h2>
+<div class="container">
+    <h2>Criar nova conta</h2>
     
     <form action="#" method="POST">
         <div class="form-group">
-            <label for="nome">Nome Completo</label>
-            <input type="text" id="nome" name="nome" placeholder="Ex: João Silva" required>
+            <label for="nome">Nome completo</label>
+            <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
         </div>
 
         <div class="form-group">
-            <label for="email">E-mail</label>
-            <input type="email" id="email" name="email" placeholder="exemplo@email.com" required>
+            <label for="email">Endereço de e-mail</label>
+            <input type="email" id="email" name="email" placeholder="email@exemplo.com" required>
         </div>
 
-        <div class="row">
+        <div class="form-row">
             <div class="form-group">
                 <label for="cpf">CPF</label>
                 <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00">
             </div>
             <div class="form-group">
-                <label for="telefone">Telefone</label>
-                <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000">
+                <label for="tel">Telefone</label>
+                <input type="tel" id="tel" name="tel" placeholder="(00) 00000-0000">
             </div>
         </div>
 
         <div class="form-group">
-            <label for="tipo">Tipo de Cliente</label>
-            <select id="tipo" name="tipo">
-                <option value="bronze">Bronze</option>
-                <option value="prata">Prata</option>
-                <option value="ouro">Ouro (VIP)</option>
+            <label for="categoria">Categoria</label>
+            <select id="categoria" name="categoria">
+                <option value="standard">Cliente Standard</option>
+                <option value="premium">Cliente Premium</option>
+                <option value="vip">Cliente VIP</option>
             </select>
         </div>
 
-        <button type="submit" class="btn-enviar">Cadastrar Cliente</button>
+        <button type="submit" class="btn-submit">Cadastrar Cliente</button>
     </form>
+
+    <div class="footer-info">
+        Ao cadastrar, você concorda com os Termos de Serviço.
+    </div>
 </div>
 
 </body>
