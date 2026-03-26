@@ -172,3 +172,149 @@
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estoque - Cadastro de Produto</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background: #ffffff;
+            width: 100%;
+            max-width: 500px;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-top: 5px solid #343a40; /* Barra superior para estilo "estoque" */
+        }
+
+        h2 {
+            color: #212529;
+            text-align: center;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 15px; /* Coloca campos lado a lado */
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            flex: 1;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #495057;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            font-size: 15px;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #343a40;
+            box-shadow: 0 0 5px rgba(52, 58, 64, 0.2);
+        }
+
+        /* Estilo específico para o botão de estoque */
+        .btn-salvar {
+            width: 100%;
+            padding: 12px;
+            background-color: #343a40;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 10px;
+        }
+
+        .btn-salvar:hover {
+            background-color: #23272b;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>📦 Cadastro de Produto</h2>
+    
+    <form action="#">
+        <div class="form-group">
+            <label for="produto">Nome do Produto</label>
+            <input type="text" id="produto" placeholder="Ex: Teclado Mecânico" required>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="sku">SKU / Código</label>
+                <input type="text" id="sku" placeholder="ABC-123">
+            </div>
+            <div class="form-group">
+                <label for="categoria">Categoria</label>
+                <select id="categoria">
+                    <option value="eletronicos">Eletrônicos</option>
+                    <option value="perifericos">Periféricos</option>
+                    <option value="escritorio">Escritório</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="preco">Preço (R$)</label>
+                <input type="number" id="preco" step="0.01" placeholder="0,00">
+            </div>
+            <div class="form-group">
+                <label for="quantidade">Qtd. em Estoque</label>
+                <input type="number" id="quantidade" placeholder="0">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="descricao">Descrição Breve</label>
+            <textarea id="descricao" placeholder="Detalhes do item..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-salvar">Salvar no Estoque</button>
+    </form>
+</div>
+
+</body>
+</html>
